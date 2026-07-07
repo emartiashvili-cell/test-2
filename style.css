@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.left-box{
+    width: 400px;
+    height: 400px;
+    background: black;
+    position: relative;
+}
+
+.small-box{
+    width: 80px;
+    height: 80px;
+    background: blue;
+}
+
+.right-boxes{
+    display: flex;
+    gap: 20px;
+}
+
+.box{
+    width: 180px;
+    height: 180px;
+    background: orange;
+} 
