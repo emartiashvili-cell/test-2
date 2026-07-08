@@ -17,7 +17,7 @@ fetch("https://jsonplaceholder.typicode.com/users")
     .catch((error) => {
         console.log(error);
     });
-    localStorage.setItem("name", "Ekaterine");
+    localStorage.setItem("name", "Ekaterine");==
 
 const user = localStorage.getItem("name");
 
