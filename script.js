@@ -1,29 +1,92 @@
-<script src="script.js"></script>
-setTimeout(() => {
-    console.log("Hello after 3 seconds");
-}, 3000); 
-const loginPromise = new Promise((resolve, reject) => {
-    resolve("login successful");
-});
+let cart = 0;
 
-loginPromise.then((result) => {
-    console.log(result);
-});
-fetch("https://jsonplaceholder.typicode.com/users")
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data);
-    })
-    .catch((error) => {
-        console.log(error);
+
+const cartText = document.getElementById("cart");
+
+
+const addButtons = document.querySelectorAll(".add-cart");
+
+
+addButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        cart++;
+
+        cartText.innerHTML = "Cart: " + cart;
+
+        alert("Product added to cart");
+
     });
-    localStorage.setItem("name", "Ekaterine");==
 
-const user = localStorage.getItem("name");
+});
 
-console.log(user);
-sessionStorage.setItem("city", "Tbilisi");
 
-const city = sessionStorage.getItem("city");
 
-console.log(city);
+const favoriteButtons = document.querySelectorAll(".favorite");
+
+
+favoriteButtons.forEach(button => {
+
+
+    button.addEventListener("click", () => {
+
+
+        button.classList.toggle("active");
+
+
+        if(button.classList.contains("active")){
+
+            button.innerHTML = "♥ Favorited";
+
+        }
+        else{
+
+            button.innerHTML = "♡ Favorite";
+
+        }
+
+
+    });
+
+
+});
+
+
+
+
+
+const search = document.getElementById("search");
+
+
+const cards = document.querySelectorAll(".card");
+
+
+search.addEventListener("input", () => {
+
+
+    const value = search.value.toLowerCase();
+
+
+    cards.forEach(card => {
+
+
+        const name = card.querySelector("h3").innerHTML.toLowerCase();
+
+
+        if(name.includes(value)){
+
+            card.style.display = "block";
+
+        }
+        else{
+
+            card.style.display = "none";
+
+        }
+
+
+    });
+
+
+});
