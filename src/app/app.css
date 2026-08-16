@@ -1,0 +1,524 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #222222;
+}
+
+button,
+a {
+  font-family: inherit;
+}
+
+
+/* =========================
+   APP
+========================= */
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  height: 78px;
+  padding: 0 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #ffffff;
+}
+
+.logo {
+  font-size: 29px;
+  font-weight: 800;
+  color: #222222;
+}
+
+.logo span {
+  color: #ff6b35;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
+
+.nav a {
+  color: #333333;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.nav a:hover {
+  color: #ff6b35;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-actions button {
+  border: none;
+  cursor: pointer;
+}
+
+.search,
+.cart {
+  background: transparent;
+  font-size: 22px;
+}
+
+.login {
+  padding: 10px 24px;
+
+  border-radius: 25px;
+  border: none;
+
+  background: #ff6b35;
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 500px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+
+  background: #fff7f2;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 60px 50px 60px 72px;
+}
+
+.small-title {
+  margin-bottom: 15px;
+
+  color: #ff6b35;
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  margin-bottom: 20px;
+
+  font-size: 52px;
+  line-height: 1.08;
+  font-weight: 800;
+}
+
+.hero h1 span {
+  color: #ff6b35;
+}
+
+.description {
+  max-width: 500px;
+
+  margin-bottom: 28px;
+
+  color: #777777;
+
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 13px 27px;
+
+  border-radius: 28px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.primary-btn {
+  border: none;
+
+  background: #ff6b35;
+  color: #ffffff;
+}
+
+.secondary-btn {
+  border: 1px solid #ff6b35;
+
+  background: #ffffff;
+  color: #ff6b35;
+}
+
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-image {
+  width: 100%;
+  min-height: 500px;
+
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 24px;
+}
+
+.section-title h2 {
+  font-size: 28px;
+  font-weight: 750;
+}
+
+.section-title a {
+  color: #ff6b35;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.categories {
+  padding: 42px 72px 38px;
+
+  background: #ffffff;
+}
+
+.category-list {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+.category-card {
+  height: 120px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  border: 1px solid #eeeeee;
+  border-radius: 16px;
+
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+
+  transition: 0.2s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+}
+
+.category-icon {
+  margin-bottom: 8px;
+
+  font-size: 36px;
+}
+
+.category-card h3 {
+  color: #333333;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   POPULAR FOODS
+========================= */
+
+.foods {
+  padding: 38px 72px 60px;
+
+  background: #fafafa;
+}
+
+.food-list {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+.food-card {
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.food-image {
+  width: 100%;
+  height: 190px;
+
+  overflow: hidden;
+
+  background: #fff1ea;
+}
+
+.food-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.food-info {
+  padding: 16px;
+}
+
+.food-info h3 {
+  margin-bottom: 7px;
+
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.food-info p {
+  margin-bottom: 15px;
+
+  color: #888888;
+
+  font-size: 13px;
+}
+
+.food-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.food-bottom span {
+  color: #ff6b35;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.food-bottom button {
+  width: 32px;
+  height: 32px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #ff6b35;
+  color: #ffffff;
+
+  font-size: 20px;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  min-height: 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 30px 72px;
+
+  background: #222222;
+  color: #ffffff;
+}
+
+.footer .logo {
+  color: #ffffff;
+}
+
+.footer p {
+  color: #cccccc;
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+
+  .header {
+    padding: 0 35px;
+  }
+
+  .hero-content {
+    padding-left: 35px;
+  }
+
+  .categories,
+  .foods {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .category-list,
+  .food-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  .header {
+    padding: 0 20px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    padding: 45px 20px;
+
+    text-align: center;
+  }
+
+  .description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-image {
+    min-height: 300px;
+  }
+
+  .categories,
+  .foods {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .category-list,
+  .food-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 15px;
+
+    text-align: center;
+  }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 450px) {
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .category-list,
+  .food-list {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-image {
+    min-height: 250px;
+  }
+} 
