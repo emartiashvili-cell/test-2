@@ -1,1 +1,1000 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8f8f8;
+  color: #222;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button,
+input {
+  outline: none;
+}
+
+.page {
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+
+/* =================================
+   TOP BAR
+================================= */
+
+.topbar {
+  height: 78px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  border-bottom: 1px solid #eeeeee;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  font-size: 29px;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+.brand b {
+  color: #ff6b22;
+}
+
+.brand-icon {
+  width: 31px;
+  height: 31px;
+  margin-right: 6px;
+  position: relative;
+}
+
+.brand-icon span:first-child {
+  position: absolute;
+  width: 28px;
+  height: 17px;
+  background: #ff6b22;
+  border-radius: 20px 20px 5px 5px;
+  top: 5px;
+}
+
+.brand-icon span:last-child {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #ff6b22;
+  border-radius: 50%;
+  left: 10px;
+  top: 0;
+}
+
+.navigation {
+  display: flex;
+  gap: 38px;
+  margin-left: 80px;
+}
+
+.navigation a {
+  color: #777;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.navigation a:hover,
+.navigation .active-link {
+  color: #ff6b22;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-icon {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #fff4ee;
+  border-radius: 50%;
+  position: relative;
+  font-size: 17px;
+}
+
+.cart-badge {
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  background: #ff6b22;
+  color: white;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signin-btn,
+.signup-btn,
+.logout-btn {
+  border-radius: 22px;
+  padding: 11px 19px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.signin-btn {
+  background: transparent;
+  border: 1px solid #eeeeee;
+  color: #333;
+}
+
+.signup-btn,
+.logout-btn {
+  background: #ff6b22;
+  color: white;
+  border: none;
+}
+
+.signin-btn:hover {
+  border-color: #ff6b22;
+  color: #ff6b22;
+}
+
+.signup-btn:hover,
+.logout-btn:hover,
+.primary-btn:hover,
+.auth-submit:hover {
+  background: #ed5b15;
+}
+
+.logged-user {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  background: #ffeadf;
+  color: #ff6b22;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.user-name {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+/* =================================
+   TOAST
+================================= */
+
+.toast {
+  position: fixed;
+  right: 25px;
+  top: 95px;
+  z-index: 300;
+  padding: 13px 20px;
+  border-radius: 10px;
+  background: #333;
+  color: white;
+  font-size: 13px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.15);
+}
+
+.toast.success {
+  background: #28a745;
+}
+
+.toast.error {
+  background: #e53935;
+}
+
+
+/* =================================
+   HERO
+================================= */
+
+.hero {
+  max-width: 1180px;
+  min-height: 560px;
+  margin: 0 auto;
+  padding: 65px 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 30px;
+}
+
+.hero-label,
+.section-label {
+  color: #ff6b22;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font-size: 55px;
+  line-height: 1.05;
+  margin: 17px 0;
+  letter-spacing: -2px;
+}
+
+.hero h1 span {
+  color: #ff6b22;
+  display: block;
+}
+
+.hero-content > p {
+  color: #888;
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.primary-btn,
+.secondary-btn {
+  height: 47px;
+  padding: 0 23px;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.primary-btn {
+  border: none;
+  background: #ff6b22;
+  color: white;
+}
+
+.primary-btn span {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.secondary-btn {
+  background: white;
+  border: 1px solid #eeeeee;
+  color: #333;
+}
+
+.secondary-btn:hover {
+  border-color: #ff6b22;
+  color: #ff6b22;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 45px;
+  margin-top: 45px;
+}
+
+.hero-stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero-stats strong {
+  font-size: 24px;
+}
+
+.hero-stats span {
+  color: #999;
+  font-size: 11px;
+}
+
+.hero-food {
+  height: 430px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-circle {
+  position: absolute;
+  width: 390px;
+  height: 390px;
+  background: #ffb45f;
+  border-radius: 50%;
+}
+
+.hero-food img {
+  width: 390px;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 40%;
+  position: relative;
+  z-index: 2;
+  mix-blend-mode: multiply;
+}
+
+.floating-card {
+  position: absolute;
+  z-index: 5;
+  background: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.card-one {
+  top: 70px;
+  right: 20px;
+}
+
+.card-two {
+  bottom: 75px;
+  left: 10px;
+}
+
+
+/* =================================
+   SECTIONS
+================================= */
+
+.section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 45px 30px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.section-heading h2 {
+  font-size: 28px;
+  margin: 7px 0 0;
+  letter-spacing: -.8px;
+}
+
+.see-all {
+  border: none;
+  background: transparent;
+  color: #ff6b22;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+/* =================================
+   CATEGORIES
+================================= */
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+.category-card {
+  background: white;
+  padding: 20px 10px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,.04);
+  transition: .2s;
+}
+
+.category-card:hover,
+.active-category {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(255,107,34,.12);
+}
+
+.category-image {
+  width: 85px;
+  height: 85px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.category-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.category-card strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.category-card span {
+  color: #999;
+  font-size: 10px;
+}
+
+
+/* =================================
+   RESTAURANTS
+================================= */
+
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.restaurant-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 25px rgba(0,0,0,.06);
+}
+
+.restaurant-image {
+  height: 190px;
+  position: relative;
+}
+
+.restaurant-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.open-badge {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  background: #31a854;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 15px;
+  font-size: 8px;
+  font-weight: bold;
+}
+
+.restaurant-content {
+  padding: 17px;
+}
+
+.restaurant-content h3 {
+  font-size: 16px;
+  margin: 0 0 7px;
+}
+
+.restaurant-content p {
+  margin: 0 0 13px;
+  color: #999;
+  font-size: 11px;
+}
+
+.restaurant-meta {
+  display: flex;
+  gap: 13px;
+  color: #777;
+  font-size: 10px;
+}
+
+
+/* =================================
+   FOOD CARDS
+================================= */
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.food-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,.05);
+}
+
+.food-image {
+  height: 175px;
+  position: relative;
+}
+
+.food-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.add-button {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  width: 32px;
+  height: 32px;
+  background: #ff6b22;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  line-height: 1;
+  box-shadow: 0 5px 15px rgba(255,107,34,.35);
+}
+
+.food-info {
+  padding: 14px;
+}
+
+.food-info h3 {
+  margin: 0 0 5px;
+  font-size: 14px;
+}
+
+.food-info > span {
+  color: #aaa;
+  font-size: 10px;
+}
+
+.food-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.food-bottom strong {
+  font-size: 15px;
+}
+
+.food-bottom small {
+  color: #888;
+}
+
+
+/* =================================
+   PIZZA FEATURE
+================================= */
+
+.pizza-feature {
+  max-width: 1180px;
+  min-height: 350px;
+  margin: 45px auto 80px;
+  padding: 45px 60px;
+  border-radius: 25px;
+  background: #fff0e5;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  overflow: hidden;
+}
+
+.pizza-text h2 {
+  font-size: 39px;
+  margin: 12px 0;
+}
+
+.pizza-text h2 span {
+  display: block;
+  color: #ff6b22;
+}
+
+.pizza-text > p {
+  color: #999;
+  max-width: 400px;
+  line-height: 1.6;
+  font-size: 13px;
+}
+
+.pizza-details {
+  display: flex;
+  gap: 20px;
+  color: #777;
+  font-size: 11px;
+  margin: 20px 0;
+}
+
+.pizza-price {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.pizza-price strong {
+  font-size: 28px;
+}
+
+.pizza-image {
+  height: 290px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pizza-bg {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: #ffb45f;
+}
+
+.pizza-image img {
+  position: relative;
+  width: 310px;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+  background: #24282c;
+  color: white;
+  padding: 55px 7%;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+footer .brand {
+  color: white;
+}
+
+footer p {
+  color: #999;
+  font-size: 11px;
+  line-height: 1.7;
+  max-width: 230px;
+}
+
+footer h4 {
+  font-size: 13px;
+  margin: 0 0 15px;
+}
+
+footer a {
+  display: block;
+  color: #999;
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+
+
+/* =================================
+   AUTH MODAL
+================================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(20,22,24,.72);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.auth-modal {
+  width: 420px;
+  max-width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: white;
+  border-radius: 22px;
+  padding: 35px;
+  position: relative;
+  box-shadow: 0 25px 80px rgba(0,0,0,.25);
+}
+
+.signup-modal {
+  width: 470px;
+}
+
+.close-modal {
+  position: absolute;
+  right: 17px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #f5f5f5;
+  border-radius: 50%;
+  font-size: 22px;
+  color: #777;
+}
+
+.close-modal:hover {
+  background: #ff6b22;
+  color: white;
+}
+
+.auth-logo {
+  font-size: 27px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 22px;
+}
+
+.auth-logo span {
+  color: #ff6b22;
+}
+
+.auth-label {
+  color: #ff6b22;
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.auth-modal h2 {
+  font-size: 30px;
+  margin: 8px 0;
+}
+
+.auth-description {
+  color: #999;
+  font-size: 12px;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.auth-modal form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-modal label {
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 7px;
+  color: #444;
+}
+
+.auth-modal input {
+  width: 100%;
+  height: 45px;
+  border: 1px solid #e5e5e5;
+  border-radius: 9px;
+  padding: 0 13px;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.auth-modal input:focus {
+  border-color: #ff6b22;
+  box-shadow: 0 0 0 3px rgba(255,107,34,.08);
+}
+
+.name-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.name-row > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-submit {
+  height: 47px;
+  border: none;
+  border-radius: 9px;
+  background: #ff6b22;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.switch-auth {
+  text-align: center;
+  font-size: 11px;
+  color: #999;
+  margin: 20px 0 0;
+}
+
+.switch-auth button {
+  border: none;
+  background: transparent;
+  color: #ff6b22;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.form-message {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+
+.form-message.success {
+  background: #eaf8ed;
+  color: #218838;
+}
+
+.form-message.error {
+  background: #fff0f0;
+  color: #d32f2f;
+}
+
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 1050px) {
+
+  .navigation {
+    margin-left: 20px;
+    gap: 20px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+  }
+
+  .categories {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .food-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .topbar {
+    padding: 0 20px;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-content > p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons,
+  .hero-stats {
+    justify-content: center;
+  }
+
+  .hero-food {
+    height: 350px;
+  }
+
+  .restaurant-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pizza-feature {
+    grid-template-columns: 1fr;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 35px;
+  }
+
+  footer {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .topbar {
+    height: 70px;
+  }
+
+  .brand {
+    font-size: 23px;
+  }
+
+  .signin-btn,
+  .signup-btn {
+    padding: 9px 12px;
+    font-size: 10px;
+  }
+
+  .hero {
+    padding: 45px 20px;
+  }
+
+  .hero h1 {
+    font-size: 37px;
+  }
+
+  .hero-food img {
+    width: 300px;
+    height: 250px;
+  }
+
+  .hero-circle {
+    width: 300px;
+    height: 300px;
+  }
+
+  .categories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .food-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 35px 20px;
+  }
+
+  .name-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .auth-modal {
+    padding: 27px 22px;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+  }
+
+} 

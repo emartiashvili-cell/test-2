@@ -1,276 +1,841 @@
-<div class="app">
+<div class="page">
 
-  <!-- HEADER -->
-  <header class="header">
+  <!-- =================================
+       TOP NAVIGATION
+  ================================= -->
 
-    <div class="logo">
-      Food<span>Go</span>
+  <header class="topbar">
+
+    <div class="brand">
+      <div class="brand-icon">
+        <span></span>
+        <span></span>
+      </div>
+
+      <span>Food</span><b>Go</b>
     </div>
 
-    <nav class="nav">
-      <a href="#">Home</a>
-      <a href="#">Menu</a>
-      <a href="#">Offers</a>
-      <a href="#">About</a>
+    <nav class="navigation">
+      <a class="active-link">Home</a>
+      <a>Menu</a>
+      <a>Restaurants</a>
+      <a>Offers</a>
     </nav>
 
     <div class="header-actions">
-      <button class="search">⌕</button>
-      <button class="cart">🛒</button>
-      <button class="login">Login</button>
+
+      <button class="cart-icon">
+        🛒
+        @if (cartCount > 0) {
+          <span class="cart-badge">{{ cartCount }}</span>
+        }
+      </button>
+
+      @if (!isLoggedIn) {
+
+        <button class="signin-btn" (click)="openSignIn()">
+          Sign In
+        </button>
+
+        <button class="signup-btn" (click)="openSignUp()">
+          Sign Up
+        </button>
+
+      } @else {
+
+        <div class="logged-user">
+          <span class="user-avatar">
+            {{ firstName ? firstName.charAt(0).toUpperCase() : 'U' }}
+          </span>
+
+          <span class="user-name">
+            {{ firstName || 'User' }}
+          </span>
+        </div>
+
+        <button class="logout-btn" (click)="logout()">
+          Log Out
+        </button>
+
+      }
+
     </div>
 
   </header>
 
 
-  <!-- HERO -->
-  <section class="hero">
+  <!-- =================================
+       SUCCESS / ERROR MESSAGE
+  ================================= -->
 
-    <div class="hero-content">
+  @if (message) {
 
-      <div class="small-title">
-        FAST DELIVERY
+    <div
+      class="toast"
+      [class.success]="messageType === 'success'"
+      [class.error]="messageType === 'error'"
+    >
+      {{ message }}
+    </div>
+
+  }
+
+
+  <!-- =================================
+       HERO
+  ================================= -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <span class="hero-label">
+          FAST & FRESH DELIVERY
+        </span>
+
+        <h1>
+          Delicious food,
+          <span>delivered to you.</span>
+        </h1>
+
+        <p>
+          Order your favorite meals from the best restaurants
+          around you and enjoy fresh food at your doorstep.
+        </p>
+
+        <div class="hero-buttons">
+
+          <button class="primary-btn">
+            Explore Food
+            <span>→</span>
+          </button>
+
+          <button class="secondary-btn" (click)="openSignUp()">
+            Create Account
+          </button>
+
+        </div>
+
+        <div class="hero-stats">
+
+          <div>
+            <strong>50+</strong>
+            <span>Restaurants</span>
+          </div>
+
+          <div>
+            <strong>30+</strong>
+            <span>Food Items</span>
+          </div>
+
+          <div>
+            <strong>4.8</strong>
+            <span>Rating</span>
+          </div>
+
+        </div>
+
       </div>
 
-      <h1>
-        Delicious food<br>
-        delivered <span>to your door</span>
-      </h1>
 
-      <p class="description">
-        Order your favorite meals from the best restaurants
-        and get them delivered right to your doorstep.
+      <div class="hero-food">
+
+        <div class="hero-circle"></div>
+
+        <div class="floating-card card-one">
+          ⭐ 4.8
+        </div>
+
+        <div class="floating-card card-two">
+          🚚 Free Delivery
+        </div>
+
+        <img
+          src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800"
+          alt="Delicious burger"
+        >
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         CATEGORIES
+    ================================= -->
+
+    <section class="section">
+
+      <div class="section-heading">
+        <div>
+          <span class="section-label">EXPLORE</span>
+          <h2>All Categories</h2>
+        </div>
+
+        <button class="see-all">
+          See All →
+        </button>
+      </div>
+
+
+      <div class="categories">
+
+        <div class="category-card active-category">
+          <div class="category-image">
+            <img
+              src="https://images.unsplash.com/photo-1579751626657-72bc17010498?w=400"
+              alt="Pizza"
+            >
+          </div>
+          <strong>Pizza</strong>
+          <span>Starting $12</span>
+        </div>
+
+
+        <div class="category-card">
+          <div class="category-image">
+            <img
+              src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400"
+              alt="Burger"
+            >
+          </div>
+          <strong>Burger</strong>
+          <span>Starting $10</span>
+        </div>
+
+
+        <div class="category-card">
+          <div class="category-image">
+            <img
+              src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=400"
+              alt="Pasta"
+            >
+          </div>
+          <strong>Pasta</strong>
+          <span>Starting $15</span>
+        </div>
+
+
+        <div class="category-card">
+          <div class="category-image">
+            <img
+              src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=400"
+              alt="Chicken"
+            >
+          </div>
+          <strong>Chicken</strong>
+          <span>Starting $13</span>
+        </div>
+
+
+        <div class="category-card">
+          <div class="category-image">
+            <img
+              src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400"
+              alt="Sandwich"
+            >
+          </div>
+          <strong>Sandwich</strong>
+          <span>Starting $11</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         OPEN RESTAURANTS
+    ================================= -->
+
+    <section class="section">
+
+      <div class="section-heading">
+        <div>
+          <span class="section-label">NEAR YOU</span>
+          <h2>Open Restaurants</h2>
+        </div>
+
+        <button class="see-all">
+          See All →
+        </button>
+      </div>
+
+
+      <div class="restaurant-grid">
+
+        <article class="restaurant-card">
+
+          <div class="restaurant-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800"
+              alt="Rose Garden Restaurant"
+            >
+
+            <span class="open-badge">
+              OPEN
+            </span>
+
+          </div>
+
+          <div class="restaurant-content">
+
+            <h3>Rose Garden Restaurant</h3>
+
+            <p>Burger · Chicken · Rice · Wings</p>
+
+            <div class="restaurant-meta">
+              <span>⭐ 4.7</span>
+              <span>🚚 Free</span>
+              <span>◷ 20 min</span>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <article class="restaurant-card">
+
+          <div class="restaurant-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1547592180-85f173990554?w=800"
+              alt="Spicy Restaurant"
+            >
+
+            <span class="open-badge">
+              OPEN
+            </span>
+
+          </div>
+
+          <div class="restaurant-content">
+
+            <h3>Spicy Restaurant</h3>
+
+            <p>Burger · Chicken · Rice</p>
+
+            <div class="restaurant-meta">
+              <span>⭐ 4.7</span>
+              <span>🚚 Free</span>
+              <span>◷ 20 min</span>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <article class="restaurant-card">
+
+          <div class="restaurant-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800"
+              alt="Pizza House"
+            >
+
+            <span class="open-badge">
+              OPEN
+            </span>
+
+          </div>
+
+          <div class="restaurant-content">
+
+            <h3>Pizza House</h3>
+
+            <p>Pizza · Pasta · Salads</p>
+
+            <div class="restaurant-meta">
+              <span>⭐ 4.9</span>
+              <span>🚚 Free</span>
+              <span>◷ 25 min</span>
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         POPULAR BURGERS
+    ================================= -->
+
+    <section class="section">
+
+      <div class="section-heading">
+        <div>
+          <span class="section-label">POPULAR</span>
+          <h2>Popular Burgers</h2>
+        </div>
+
+        <button class="see-all">
+          See All →
+        </button>
+      </div>
+
+
+      <div class="food-grid">
+
+
+        <article class="food-card">
+
+          <div class="food-image">
+            <img
+              src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600"
+              alt="Burger Bistro"
+            >
+
+            <button
+              class="add-button"
+              (click)="addToCart(40)"
+            >
+              +
+            </button>
+          </div>
+
+          <div class="food-info">
+            <h3>Burger Bistro</h3>
+            <span>Rose Garden</span>
+
+            <div class="food-bottom">
+              <strong>$40</strong>
+              <small>⭐ 4.7</small>
+            </div>
+          </div>
+
+        </article>
+
+
+        <article class="food-card">
+
+          <div class="food-image">
+            <img
+              src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=600"
+              alt="Rockin Burger"
+            >
+
+            <button
+              class="add-button"
+              (click)="addToCart(40)"
+            >
+              +
+            </button>
+          </div>
+
+          <div class="food-info">
+            <h3>Rockin' Burgers</h3>
+            <span>Coffeecachino</span>
+
+            <div class="food-bottom">
+              <strong>$40</strong>
+              <small>⭐ 4.8</small>
+            </div>
+          </div>
+
+        </article>
+
+
+        <article class="food-card">
+
+          <div class="food-image">
+            <img
+              src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=600"
+              alt="Buffalo Burger"
+            >
+
+            <button
+              class="add-button"
+              (click)="addToCart(75)"
+            >
+              +
+            </button>
+          </div>
+
+          <div class="food-info">
+            <h3>Buffalo Burgers</h3>
+            <span>Kolli Farm Kitchen</span>
+
+            <div class="food-bottom">
+              <strong>$75</strong>
+              <small>⭐ 4.6</small>
+            </div>
+          </div>
+
+        </article>
+
+
+        <article class="food-card">
+
+          <div class="food-image">
+            <img
+              src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=600"
+              alt="Bullseye Burger"
+            >
+
+            <button
+              class="add-button"
+              (click)="addToCart(94)"
+            >
+              +
+            </button>
+          </div>
+
+          <div class="food-info">
+            <h3>Bullseye Burger</h3>
+            <span>Kebab Restaurant</span>
+
+            <div class="food-bottom">
+              <strong>$94</strong>
+              <small>⭐ 4.7</small>
+            </div>
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         PIZZA FEATURE
+    ================================= -->
+
+    <section class="pizza-feature">
+
+      <div class="pizza-text">
+
+        <span class="section-label">
+          TODAY'S SPECIAL
+        </span>
+
+        <h2>
+          Pizza Calzone
+          <span>European</span>
+        </h2>
+
+        <p>
+          Delicious Italian pizza filled with cheese,
+          mushrooms and fresh ingredients.
+        </p>
+
+        <div class="pizza-details">
+
+          <span>⭐ 4.7</span>
+          <span>🚚 Free</span>
+          <span>◷ 20 min</span>
+
+        </div>
+
+        <div class="pizza-price">
+          <strong>$32</strong>
+
+          <button
+            class="primary-btn"
+            (click)="addToCart(32)"
+          >
+            Add to Cart
+          </button>
+        </div>
+
+      </div>
+
+
+      <div class="pizza-image">
+
+        <div class="pizza-bg"></div>
+
+        <img
+          src="https://images.unsplash.com/photo-1579751626657-72bc17010498?w=900"
+          alt="Pizza Calzone"
+        >
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =================================
+       FOOTER
+  ================================= -->
+
+  <footer>
+
+    <div class="footer-brand">
+      <div class="brand">
+        <span>Food</span><b>Go</b>
+      </div>
+
+      <p>
+        Fresh food delivered quickly
+        right to your door.
       </p>
-
-      <div class="hero-buttons">
-
-        <button class="primary-btn">
-          Order Now
-        </button>
-
-        <button class="secondary-btn">
-          Explore Menu
-        </button>
-
-      </div>
-
     </div>
 
-
-    <!-- HERO PHOTO -->
-    <div class="hero-image">
-
-      <img
-        src="images/Full View_06.png"
-        alt="Delicious food"
-      >
-
+    <div>
+      <h4>FoodGo</h4>
+      <a>About Us</a>
+      <a>Restaurants</a>
+      <a>Careers</a>
     </div>
 
-  </section>
-
-
-  <!-- POPULAR CATEGORIES -->
-  <section class="categories">
-
-    <div class="section-title">
-
-      <h2>
-        Popular Categories
-      </h2>
-
-      <a href="#">
-        View all →
-      </a>
-
+    <div>
+      <h4>Support</h4>
+      <a>Help Center</a>
+      <a>Contact Us</a>
+      <a>Privacy</a>
     </div>
 
-
-    <div class="category-list">
-
-      <div class="category-card">
-        <div class="category-icon">🍔</div>
-        <h3>Burgers</h3>
-      </div>
-
-      <div class="category-card">
-        <div class="category-icon">🍕</div>
-        <h3>Pizza</h3>
-      </div>
-
-      <div class="category-card">
-        <div class="category-icon">🍣</div>
-        <h3>Sushi</h3>
-      </div>
-
-      <div class="category-card">
-        <div class="category-icon">🍜</div>
-        <h3>Noodles</h3>
-      </div>
-
+    <div class="footer-contact">
+      <h4>Get in touch</h4>
+      <p>support@foodgo.com</p>
+      <p>+995 555 123 456</p>
     </div>
-
-  </section>
-
-
-  <!-- POPULAR FOODS -->
-  <section class="foods">
-
-    <div class="section-title">
-
-      <h2>
-        Popular Foods
-      </h2>
-
-      <a href="#">
-        View all →
-      </a>
-
-    </div>
-
-
-    <div class="food-list">
-
-
-      <!-- FOOD 1 -->
-      <article class="food-card">
-
-        <div class="food-image">
-          <img
-            src="images/Full View_03.png"
-            alt="Food"
-          >
-        </div>
-
-        <div class="food-info">
-
-          <h3>Delicious Food</h3>
-
-          <p>Fresh and tasty food</p>
-
-          <div class="food-bottom">
-
-            <span>$12.99</span>
-
-            <button>
-              +
-            </button>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- FOOD 2 -->
-      <article class="food-card">
-
-        <div class="food-image">
-          <img
-            src="images/Full View_04.png"
-            alt="Food"
-          >
-        </div>
-
-        <div class="food-info">
-
-          <h3>Fresh Food</h3>
-
-          <p>Fresh and tasty food</p>
-
-          <div class="food-bottom">
-
-            <span>$14.99</span>
-
-            <button>
-              +
-            </button>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- FOOD 3 -->
-      <article class="food-card">
-
-        <div class="food-image">
-          <img
-            src="images/Full View_07.png"
-            alt="Food"
-          >
-        </div>
-
-        <div class="food-info">
-
-          <h3>Special Food</h3>
-
-          <p>Fresh and tasty food</p>
-
-          <div class="food-bottom">
-
-            <span>$16.99</span>
-
-            <button>
-              +
-            </button>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- FOOD 4 -->
-      <article class="food-card">
-
-        <div class="food-image">
-          <img
-            src="images/Full View_08.png"
-            alt="Food"
-          >
-        </div>
-
-        <div class="food-info">
-
-          <h3>Asian Food</h3>
-
-          <p>Fresh and tasty food</p>
-
-          <div class="food-bottom">
-
-            <span>$11.99</span>
-
-            <button>
-              +
-            </button>
-
-          </div>
-
-        </div>
-
-      </article>
-
-    </div>
-
-  </section>
-
-
-  <!-- FOOTER -->
-  <footer class="footer">
-
-    <div class="logo">
-      Food<span>Go</span>
-    </div>
-
-    <p>
-      Delicious food delivered to your door.
-    </p>
 
   </footer>
 
-</div> 
+</div>
+
+
+<!-- =================================
+     SIGN IN MODAL
+================================= -->
+
+@if (showSignIn) {
+
+  <div class="modal-overlay" (click)="closeAuth()">
+
+    <div
+      class="auth-modal"
+      (click)="$event.stopPropagation()"
+    >
+
+      <button
+        class="close-modal"
+        (click)="closeAuth()"
+      >
+        ×
+      </button>
+
+      <div class="auth-logo">
+        Food<span>Go</span>
+      </div>
+
+      <span class="auth-label">
+        WELCOME BACK
+      </span>
+
+      <h2>Sign In</h2>
+
+      <p class="auth-description">
+        Sign in to continue ordering your favorite food.
+      </p>
+
+
+      <form (ngSubmit)="login()">
+
+        <label>Email</label>
+
+        <input
+          type="email"
+          name="loginEmail"
+          [(ngModel)]="loginEmail"
+          placeholder="Enter your email"
+        >
+
+
+        <label>Password</label>
+
+        <input
+          type="password"
+          name="loginPassword"
+          [(ngModel)]="loginPassword"
+          placeholder="Enter your password"
+        >
+
+
+        @if (message && showSignIn) {
+          <div
+            class="form-message"
+            [class.success]="messageType === 'success'"
+            [class.error]="messageType === 'error'"
+          >
+            {{ message }}
+          </div>
+        }
+
+
+        <button
+          type="submit"
+          class="auth-submit"
+        >
+          Sign In
+        </button>
+
+      </form>
+
+
+      <p class="switch-auth">
+        Don't have an account?
+
+        <button
+          type="button"
+          (click)="openSignUp()"
+        >
+          Sign Up
+        </button>
+      </p>
+
+    </div>
+
+  </div>
+
+}
+
+
+<!-- =================================
+     SIGN UP MODAL
+================================= -->
+
+@if (showSignUp) {
+
+  <div class="modal-overlay" (click)="closeAuth()">
+
+    <div
+      class="auth-modal signup-modal"
+      (click)="$event.stopPropagation()"
+    >
+
+      <button
+        class="close-modal"
+        (click)="closeAuth()"
+      >
+        ×
+      </button>
+
+      <div class="auth-logo">
+        Food<span>Go</span>
+      </div>
+
+      <span class="auth-label">
+        JOIN FOODGO
+      </span>
+
+      <h2>Create Account</h2>
+
+      <p class="auth-description">
+        Create your account and start ordering.
+      </p>
+
+
+      <form (ngSubmit)="register()">
+
+        <div class="name-row">
+
+          <div>
+            <label>First Name</label>
+
+            <input
+              type="text"
+              name="firstName"
+              [(ngModel)]="firstName"
+              placeholder="First name"
+            >
+          </div>
+
+
+          <div>
+            <label>Last Name</label>
+
+            <input
+              type="text"
+              name="lastName"
+              [(ngModel)]="lastName"
+              placeholder="Last name"
+            >
+          </div>
+
+        </div>
+
+
+        <label>Email</label>
+
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="Enter your email"
+        >
+
+
+        <label>Password</label>
+
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="At least 6 characters"
+        >
+
+
+        <label>Repeat Password</label>
+
+        <input
+          type="password"
+          name="repeatPassword"
+          [(ngModel)]="repeatPassword"
+          placeholder="Repeat your password"
+        >
+
+
+        @if (message && showSignUp) {
+
+          <div
+            class="form-message"
+            [class.success]="messageType === 'success'"
+            [class.error]="messageType === 'error'"
+          >
+            {{ message }}
+          </div>
+
+        }
+
+
+        <button
+          type="submit"
+          class="auth-submit"
+        >
+          Create Account
+        </button>
+
+      </form>
+
+
+      <p class="switch-auth">
+        Already have an account?
+
+        <button
+          type="button"
+          (click)="openSignIn()"
+        >
+          Sign In
+        </button>
+      </p>
+
+    </div>
+
+  </div>
+
+} 
